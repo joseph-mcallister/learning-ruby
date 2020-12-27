@@ -14,7 +14,20 @@
 #   about_triangle_project_2.rb
 #
 def triangle(a, b, c)
-  # WRITE THIS CODE
+
+  is_valid_triangle = (a + b > c and a + c > b and b + c > a)
+
+  if not is_valid_triangle 
+    raise TriangleError, "Triangle lengths are not valid" 
+  end
+
+  if a == b and b == c
+    return :equilateral
+  elsif a == b or a == c or b == c
+    return :isosceles
+  else
+    return :scalene
+  end
 end
 
 # Error class used in part 2.  No need to change this code.
